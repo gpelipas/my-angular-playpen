@@ -1,0 +1,10 @@
+<h1>Angular Component Interaction Demo</h1>
+<p>Parent Input: <input #parentInput type="text" [(ngModel)]="parentInputValue" placeholder="Type something..."></p>
+<p *ngIf="savedData">Data sent from Child to Parent: {{ savedData }}</p> 
+<button (click)="focusParentInput()">Focus Parent Input</button>
+<button (click)="focusChildInput()">Focus Child Input</button>
+<button (click)="callChildMethod()">Call Child Method</button>
+<app-child (saveRequest)="handleSave($event)"></app-child>
+
+<app-sibling-a></app-sibling-a>  
+<app-sibling-b></app-sibling-b>  
