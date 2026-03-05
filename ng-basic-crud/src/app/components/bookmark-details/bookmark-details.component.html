@@ -1,0 +1,69 @@
+@if (viewMode){
+  @if (currentBookmark.id) {
+  <h4>Bookmark</h4>
+  <div>
+    <label><strong>Name:</strong></label> {{ currentBookmark.name }}
+  </div>
+  <div>
+    <label><strong>Url:</strong></label>
+    {{ currentBookmark.url }}
+  </div>
+  <div>
+    <label><strong>Last Saved:</strong></label>
+    {{ currentBookmark.dateSaved }}
+  </div>
+
+  <a class="badge badge-warning" routerLink="/bookmarks/{{ currentBookmark.id }}">
+    Edit
+  </a>
+  } @else {
+    <p>No Bookmark to view</p>
+  }
+} @else {
+  @if (currentBookmark.id) {
+  <div class="edit-form">
+    <h4>Bookmark</h4>
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="currentBookmark.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="url">Url:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="url"
+          [(ngModel)]="currentBookmark.url"
+          name="url"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Last Saved:</strong></label>
+        {{ currentBookmark.dateSaved }}
+      </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteBookmark()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateBookmark()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  } @else {
+    <p>No Bookmark to update</p>
+  }
+}

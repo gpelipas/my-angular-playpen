@@ -1,0 +1,42 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchByName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Bookmarks</h4>
+    <ul class="list-group">
+      @for (bookmark of bookmarks; track bookmark.id; let i = $index) {
+      <li
+        class="list-group-item"
+        [class.active]="i == currentIndex"
+        (click)="setActiveBookmark(bookmark, i)"
+      >
+        {{ bookmark.name }}
+      </li>
+      }
+    </ul>
+
+  </div>
+  <div class="col-md-6">
+    <app-bookmark-details
+      [viewMode]="true"
+      [currentBookmark]="currentBookmark"
+    ></app-bookmark-details>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div>
+  <div class="submit-form">
+    @if (!submitted) {
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="bookmark.name"
+        name="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="url">URL</label>
+      <input
+        class="form-control"
+        id="url"
+        required
+        [(ngModel)]="bookmark.url"
+        name="url"
+      />
+    </div>
+
+    <button (click)="saveBookmark()" class="btn btn-success">Save</button>
+    } @else {
+    <h4>Bookmark saved successfully!</h4>
+    <button class="btn btn-success" (click)="newBookmark()">Add</button>
+    }
+  </div>
+</div>
