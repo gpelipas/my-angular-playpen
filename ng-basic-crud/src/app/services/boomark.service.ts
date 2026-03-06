@@ -36,8 +36,8 @@ export class BookmarkService {
     return this.http.delete(`${this.baseApiUrl}/${id}`);
   }
 
-  findByName(name: any): Observable<Bookmark[]> {
-    return this.http.get<Bookmark[]>(`${this.baseApiUrl}?name=${name}`);
+  findByName(name: any): Observable<WebResponse> {
+    return this.http.get<WebResponse>(`${this.baseApiUrl}?name=${name}`);
   }
 
 }

@@ -59,7 +59,7 @@ export class BookmarkListComponent implements OnInit {
 
     this.bookmarkService.findByName(this.name).subscribe({
       next: (data) => {
-        this.bookmarks = data;
+        this.bookmarks = data.payload;
         console.log(data);
       },
       error: (e) => console.error(e)
