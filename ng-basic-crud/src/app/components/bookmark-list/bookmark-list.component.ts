@@ -23,7 +23,7 @@ export class BookmarkListComponent implements OnInit {
   private retrieveBookmarks(): void {
     this.bookmarkService.getAll().subscribe({
       next: (data) => {
-        this.bookmarks = data;
+        this.bookmarks = data.payload;
         console.log(data);
       },
       error: (e) => console.error(e)

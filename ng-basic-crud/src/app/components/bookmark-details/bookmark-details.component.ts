@@ -31,7 +31,7 @@ export class BookmarkDetailsComponent implements OnInit {
   getBookmark(id: string): void {
     this.bookmarkService.get(id).subscribe({
       next: (data) => {
-        this.currentBookmark = data;
+        this.currentBookmark = data.payload;
         console.log(data);
       },
       error: (e) => console.error(e)

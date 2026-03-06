@@ -1,6 +1,6 @@
 @if (viewMode){
   @if (currentBookmark.id) {
-  <h4>Bookmark</h4>
+  <h4>Details</h4>
   <div>
     <label><strong>Name:</strong></label> {{ currentBookmark.name }}
   </div>
@@ -17,7 +17,7 @@
     Edit
   </a>
   } @else {
-    <p>No Bookmark to view</p>
+    <p>No bookmark selected</p>
   }
 } @else {
   @if (currentBookmark.id) {
@@ -64,6 +64,6 @@
     <p>{{ message }}</p>
   </div>
   } @else {
-    <p>No Bookmark to update</p>
+    <p>No selected bookmark to update</p>
   }
 }

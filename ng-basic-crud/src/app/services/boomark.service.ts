@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Bookmark } from '../models/bookmark.model';
+import { WebResponse } from '../models/webresponse.model';
 import { environment } from '../../environments/environment';
 
 
@@ -15,16 +16,16 @@ export class BookmarkService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Bookmark[]> {
-    return this.http.get<Bookmark[]>(this.baseApiUrl);
+  getAll(): Observable<WebResponse> {
+    return this.http.get<WebResponse>(this.baseApiUrl);
   }
 
-  get(id: any): Observable<Bookmark> {
-    return this.http.get<Bookmark>(`${this.baseApiUrl}/${id}`);
+  get(id: any): Observable<WebResponse> {
+    return this.http.get<WebResponse>(`${this.baseApiUrl}/${id}`);
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post(this.baseApiUrl, data);
+  create(data: any): Observable<WebResponse> {
+    return this.http.post<WebResponse>(this.baseApiUrl, data);
   }
 
   update(id: any, data: any): Observable<any> {
