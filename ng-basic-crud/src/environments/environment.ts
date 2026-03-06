@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://app.gpelipasappstack.io/api/bookmark'
+  apiUrl: 'https://app.gpelipasappstack.io/api/bookmarks'
 };
